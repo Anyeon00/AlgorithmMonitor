@@ -12,12 +12,11 @@ public class ProblemStatusManagerImpl implements ProblemStatusManager {
     private final ProblemBox problemBox;
 
     @Override
-    public void getOverallStatus() {
-//        problemBox
+    public void getAllInfo() {
+
     }
 
     @Override
-    public ProblemBox getUnsolved() {
-        return null;
+    public void getUnsolvedInfo() {
     }
 }

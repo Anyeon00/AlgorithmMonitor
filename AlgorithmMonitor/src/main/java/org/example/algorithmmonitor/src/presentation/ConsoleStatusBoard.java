@@ -11,12 +11,14 @@ public class ConsoleStatusBoard {
 
     private final ProblemStatusManager problemStatusManager;
 
-    public void printOverallStatus() {
+    public void printAllInfo() {
+        problemStatusManager.getAllInfo();
         System.out.println("ConsoleStatusBoard.printOverallStatus");
-        problemStatusManager.presentOverallStatus();
+//        problemStatusManager.presentOverallStatus();
     }
 
-    public void printUnsolved() {
+    public void printUnSolvedInfo() {
+        problemStatusManager.getUnsolvedInfo();
         System.out.println("ConsoleStatusBoard.printUnsolved");
 //        List<ProblemBox> problemBoxList = problemStatusManager.presentUnsolved();
 //        problemList.stream().forEach(System.out::println);
