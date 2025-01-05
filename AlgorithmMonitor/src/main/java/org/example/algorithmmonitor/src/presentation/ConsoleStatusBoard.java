@@ -13,7 +13,7 @@ public class ConsoleStatusBoard {
 
     public void printOverallStatus() {
         System.out.println("ConsoleStatusBoard.printOverallStatus");
-        problemStatusManager.presentOverallStatus();
+//        problemStatusManager.presentOverallStatus();
     }
 
     public void printUnsolved() {
@@ -21,4 +21,5 @@ public class ConsoleStatusBoard {
 //        List<ProblemBox> problemBoxList = problemStatusManager.presentUnsolved();
 //        problemList.stream().forEach(System.out::println);
     }
+    //commit test
 }
