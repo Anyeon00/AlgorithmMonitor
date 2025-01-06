@@ -13,7 +13,7 @@ public class Backjoon1003 extends DP {
         //1. 문제 이름 설정 ex) name = "피보나치 함수"
         //2. 문제풀이 후, 결과 설정 ex) result = SUCCESS or result = FAIL
         name = "피보나치 함수";
-        result = success;
+        result = fail;
     }
 
     public static void main(String[] args) throws IOException {

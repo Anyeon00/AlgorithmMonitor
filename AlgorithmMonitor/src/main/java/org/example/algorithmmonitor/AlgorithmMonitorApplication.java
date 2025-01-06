@@ -8,8 +8,5 @@ public class AlgorithmMonitorApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AlgorithmMonitorApplication.class, args);
-        //board.printOverallStatus();
-        //board.printUnsolved();
     }
-
 }
