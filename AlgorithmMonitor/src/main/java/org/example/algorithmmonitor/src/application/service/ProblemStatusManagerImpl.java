@@ -5,11 +5,11 @@ import lombok.RequiredArgsConstructor;
 import org.example.algorithmmonitor.src.application.domain.Problem;
 import org.example.algorithmmonitor.src.application.domain.ProblemBox;
 import org.example.algorithmmonitor.src.application.service.dto.AllInfo;
+import org.example.algorithmmonitor.src.application.service.dto.ProblemInfo;
 import org.example.algorithmmonitor.src.application.service.dto.UnsolvedInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +24,7 @@ public class ProblemStatusManagerImpl implements ProblemStatusManager {
                 problemBox.size(),
                 problemBox.getSolved().size(),
                 problemBox.getUnsolved().size(),
+                problemBox.getMapByType().keySet().stream().toList(),
                 getCountMapByType(problemBox.getSolvedMapByType()),
                 getCountMapByType(problemBox.getUnsolvedMapByType()));
     }
@@ -39,6 +40,12 @@ public class ProblemStatusManagerImpl implements ProblemStatusManager {
 
     @Override
     public UnsolvedInfo getUnsolvedInfo() {
-        return null;
+        HashMap<String, ProblemInfo> unsolvedInfo = new HashMap<>();
+        HashMap<String, Problem> unsolvedMapByType = problemBox.getUnsolvedMapByType();
+        for (String type : unsolvedMapByType.keySet()) {
+            Problem problem = unsolvedMapByType.get(type);
+            unsolvedInfo.put(type, ProblemInfo.of(problem));
+        }
+        return UnsolvedInfo.of(unsolvedInfo);
     }
 }

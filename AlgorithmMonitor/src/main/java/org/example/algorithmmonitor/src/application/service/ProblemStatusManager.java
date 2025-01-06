@@ -6,8 +6,6 @@ import org.example.algorithmmonitor.src.application.service.dto.UnsolvedInfo;
 
 public interface ProblemStatusManager {
 
-    //아래 return type, argument 미정
-
     // 1. 현황 보기 총 푼 문제, 총 못푼 문제 _전체&유형별
     AllInfo getAllInfo();
 
