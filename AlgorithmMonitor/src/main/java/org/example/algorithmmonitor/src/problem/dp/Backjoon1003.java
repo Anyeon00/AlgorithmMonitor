@@ -1,6 +1,6 @@
 package org.example.algorithmmonitor.src.problem.dp;
 
-import org.example.algorithmmonitor.src.application.domain.DP;
+import org.example.algorithmmonitor.src.application.domain.type.DP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
