@@ -37,13 +37,13 @@ public class ProblemBox {
                 Problem problem = (Problem) clazz.getDeclaredConstructor().newInstance();
                 //problem list 에 추가
                 problems.add(problem);
-                System.out.println("Added problem: " + problem.getClass().getSimpleName());
+//                System.out.println("Added problem: " + problem.getClass().getSimpleName());
             } catch (Exception e) {
                 System.out.println("Could not instantiate class: " + clazz.getName());
                 e.printStackTrace();
             }
         }
-        System.out.println("problems.size(): " + problems.size());
+//        System.out.println("problems.size(): " + problems.size());
     }
 
     public Integer size() {

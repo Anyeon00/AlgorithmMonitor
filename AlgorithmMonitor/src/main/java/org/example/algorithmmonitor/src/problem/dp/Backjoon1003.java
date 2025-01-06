@@ -9,11 +9,10 @@ import java.io.InputStreamReader;
 public class Backjoon1003 extends DP {
 
     public Backjoon1003() {
-        //ProblemBox에 등록
-        //1. 문제 이름 설정 ex) name = "피보나치 함수"
-        //2. 문제풀이 후, 결과 설정 ex) result = SUCCESS or result = FAIL
+        //1. 문제 이름 설정
         name = "피보나치 함수";
-        result = fail;
+        //2. 문제풀이 후 결과 설정
+        result = fail;  // or result = success
     }
 
     public static void main(String[] args) throws IOException {

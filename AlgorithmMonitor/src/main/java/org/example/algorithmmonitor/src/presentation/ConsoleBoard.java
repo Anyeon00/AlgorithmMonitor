@@ -35,7 +35,7 @@ public class ConsoleBoard {
         HashMap<String, Integer> unsolvedMap = allInfo.unsolvedNByType();
 
         sb.append("------------- 전체 현황 -------------\n")
-                .append("시도한 문제 수 : " + allInfo.attemptN() + "\n")
+                .append("시도한 문제 수 : " + allInfo.attemptN() + "\n\n")
                 .append("해결한 문제 수 : " + allInfo.solvedN() + "\n")
                 .append("실패한 문제 수 : " + allInfo.unsolvedN() + "\n\n");
         for (String type : allInfo.typeList()) {
