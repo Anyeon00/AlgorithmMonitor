@@ -25,7 +25,7 @@
    ex) result = success; <br>
    // 또는 result = fail; <br>
    // default 값은 fail임 <br>
-   [사진]
+
 5. 스프링부트어플리케이션을 실행하면, 자동으로 콘솔에 현황이 출력됨 <br>
    [사진]
 
