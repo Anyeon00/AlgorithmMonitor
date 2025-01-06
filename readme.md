@@ -14,19 +14,19 @@
 
 ## 사용법
 0. src/problem/문제유형 패키지를 이용
-1. Class 이름으로 문제 번호를 작성 후, 문제 유형을 상속
-   ex) public class Backjoon1003 extends DP
-//문제 유형은 src/application/domain/type 패키지에서 확인 가능
+1. Class 이름으로 문제 번호를 작성 후, 문제 유형을 상속 <br>
+   ex) public class Backjoon1003 extends DP <br>
+//문제 유형은 src/application/domain/type 패키지에서 확인 가능 <br>
 //존재하지 않는 경우, "Problem" 을 상속
-2. 생성자를 만들고, 그 안에서 name 변수에 문제 이름을 작성
+2. 생성자를 만들고, 그 안에서 name 변수에 문제 이름을 작성 <br>
    ex) public Backjoon1003(){ name = "피보나치 함수"; }
 3. 일반적으로 문제 풀듯이 메인 메소드를 작성하고 문제 풀기
-4. 성공 혹은 실패 결과를 생성자에서 result 변수에 작성
-   ex) result = success;
-   // 또는 result = fail;
-   // default 값은 fail임
+4. 성공 혹은 실패 결과를 생성자에서 result 변수에 작성 <br>
+   ex) result = success; <br>
+   // 또는 result = fail; <br>
+   // default 값은 fail임 <br>
    [사진]
-5. 스프링부트어플리케이션을 실행하면, 자동으로 콘솔에 현황이 출력됨
+5. 스프링부트어플리케이션을 실행하면, 자동으로 콘솔에 현황이 출력됨 <br>
    [사진]
 
 ## 프로그램 특징
