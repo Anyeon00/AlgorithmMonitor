@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public abstract class Problem {
-    protected static final Boolean success = true;
-    protected static final Boolean fail = false;
+    public static final Boolean success = true;
+    public static final Boolean fail = false;
 
     protected String type = "";
     //백준인 경우, 프로그래머스 문제인 경우는 나중에 생각하기
