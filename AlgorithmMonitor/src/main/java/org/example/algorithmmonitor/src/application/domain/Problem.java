@@ -12,13 +12,10 @@ public abstract class Problem {
     protected String number = "";
     protected String name = "";
     protected Boolean result = false;
+    //    protected String memo = "";
 
     protected Problem() {
         number = this.getClass().getSimpleName();
-    }
-
-    public Problem getProblem() {
-        return this;
     }
 
 /*

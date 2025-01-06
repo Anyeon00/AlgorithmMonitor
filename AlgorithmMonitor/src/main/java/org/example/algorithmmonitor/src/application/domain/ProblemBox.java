@@ -16,7 +16,7 @@ public class ProblemBox {
     // -> 나중에 반정규화해놓기(분류해서 따로 저장)
     // -> MySQL 쓰면 index 걸기
     private final List<Problem> problems = new ArrayList<>();
-    private HashMap<String, Problem> mapByType;
+    private HashMap<String, List<Problem>> mapByType;
 
     @PostConstruct
     private void setProblemBox() {
@@ -75,7 +75,7 @@ public class ProblemBox {
         return problems.stream().filter(p -> p.getResult() == Problem.fail).toList();
     }
 
-    public HashMap<String, Problem> getMapByType() {
+    public HashMap<String, List<Problem>> getMapByType() {
         if (mapByType == null) {
             mapByType = new HashMap<>();
             //type 추출
@@ -83,28 +83,30 @@ public class ProblemBox {
             //type 별로 수행
             for (String type : typeList) {
                 //해당 type에 해당하는 모든 problem을 찾아서, map에 put
-                this.findByType(type).stream().forEach(p -> mapByType.put(type, p));
+                List<Problem> problemList = new ArrayList<>(this.findByType(type));
+                mapByType.put(type, problemList);
             }
         }
         return mapByType;
     }
 
-    public HashMap<String, Problem> getSolvedMapByType() {
-        HashMap<String, Problem> solvedMap = new HashMap<>();
+    public HashMap<String, List<Problem>> getSolvedMapByType() {
+        HashMap<String, List<Problem>> solvedMap = new HashMap<>();
         List<String> typeList = this.getSolved().stream().map(Problem::getType).toList();
         for (String type : typeList) {
-            this.findByType(type).stream().forEach(p -> mapByType.put(type, p));
+            List<Problem> problemList = new ArrayList<>(this.findByType(type));
+            solvedMap.put(type, problemList);
         }
         return solvedMap;
     }
 
-    public HashMap<String, Problem> getUnsolvedMapByType() {
-        HashMap<String, Problem> unsolvedMap = new HashMap<>();
+    public HashMap<String, List<Problem>> getUnsolvedMapByType() {
+        HashMap<String, List<Problem>> unsolvedMap = new HashMap<>();
         List<String> typeList = this.getUnsolved().stream().map(Problem::getType).toList();
         for (String type : typeList) {
-            this.findByType(type).stream().forEach(p -> mapByType.put(type, p));
+            List<Problem> problemList = new ArrayList<>(this.findByType(type));
+            unsolvedMap.put(type, problemList);
         }
         return unsolvedMap;
     }
-
 }

@@ -10,6 +10,7 @@ import org.example.algorithmmonitor.src.application.service.dto.UnsolvedInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,23 +30,23 @@ public class ProblemStatusManagerImpl implements ProblemStatusManager {
                 getCountMapByType(problemBox.getUnsolvedMapByType()));
     }
 
-    private HashMap<String, Integer> getCountMapByType(HashMap<String, Problem> problemMap) {
-        HashMap<String, Integer> countMap = new HashMap<>();
-        for (String type : problemMap.keySet()) {
-            int size = problemBox.findByType(type).size();
-            countMap.put(type, size);
-        }
-        return countMap;
-    }
-
     @Override
     public UnsolvedInfo getUnsolvedInfo() {
-        HashMap<String, ProblemInfo> unsolvedInfo = new HashMap<>();
-        HashMap<String, Problem> unsolvedMapByType = problemBox.getUnsolvedMapByType();
+        HashMap<String, List<Problem>> unsolvedMapByType = problemBox.getUnsolvedMapByType();
+        HashMap<String, List<ProblemInfo>> unsolvedInfo = new HashMap<>();
         for (String type : unsolvedMapByType.keySet()) {
-            Problem problem = unsolvedMapByType.get(type);
-            unsolvedInfo.put(type, ProblemInfo.of(problem));
+            List<Problem> problemList = unsolvedMapByType.get(type);
+            List<ProblemInfo> infoList = problemList.stream().map(ProblemInfo::of).toList();
+            unsolvedInfo.put(type, infoList);
         }
         return UnsolvedInfo.of(unsolvedInfo);
+    }
+
+    private static HashMap<String, Integer> getCountMapByType(HashMap<String, List<Problem>> problemMap) {
+        HashMap<String, Integer> countMap = new HashMap<>();
+        for (String type : problemMap.keySet()) {
+            countMap.put(type, problemMap.get(type).size());
+        }
+        return countMap;
     }
 }
