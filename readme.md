@@ -18,7 +18,7 @@
 ```java 
     public class Backjoon1003 extends DP
     //문제 유형은 application/domain/type 패키지에서 확인 가능
-    //유형이 존재하지 않는 경우 "Problem" 상속
+    //유형이 존재하지 않는 경우 "Problem" 상속 
 ```
 2. 생성자를 만들고, name 변수에 문제 이름을 작성 <br>
 ```java
