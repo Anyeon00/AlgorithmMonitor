@@ -7,7 +7,7 @@ public abstract class Problem {
     public static final Boolean success = true;
     public static final Boolean fail = false;
 
-    protected String type = "";
+    protected String type = "unknown";
     //백준인 경우, 프로그래머스 문제인 경우는 나중에 생각하기
     protected String number = "";
     protected String name = "";

@@ -23,7 +23,7 @@ public class ConsoleBoard {
     private void main() {
         System.out.println("[알고리즘 현황 게시판]");
         printAllInfo();
-        System.out.println("틀린 문제를 확인하려면 엔터를 눌러주세요.");
+        System.out.println("틀린 문제를 확인하려면 엔터를 눌러주세요. (작동하지 않을 시 한 번 더 눌러주세요)");
         new Scanner(System.in).nextLine();
         printUnsolvedInfo();
     }
