@@ -30,15 +30,15 @@ public class ConsoleBoard {
 
     public void printAllInfo() {
         StringBuilder sb = new StringBuilder();
-        AllInfo allInfo = problemStatusManager.getAllInfo();
-        HashMap<String, Integer> solvedMap = allInfo.solvedNByType();
-        HashMap<String, Integer> unsolvedMap = allInfo.unsolvedNByType();
+        AllInfo info = problemStatusManager.getAllInfo();
+        HashMap<String, Integer> solvedMap = info.solvedNByType();
+        HashMap<String, Integer> unsolvedMap = info.unsolvedNByType();
 
         sb.append("------------- 전체 현황 -------------\n")
-                .append("시도한 문제 수 : " + allInfo.attemptN() + "\n\n")
-                .append("해결한 문제 수 : " + allInfo.solvedN() + "\n")
-                .append("실패한 문제 수 : " + allInfo.unsolvedN() + "\n\n");
-        for (String type : allInfo.typeList()) {
+                .append("시도한 문제 수 : " + info.attemptN() + "\n\n")
+                .append("해결한 문제 수 : " + info.solvedN() + "\n")
+                .append("실패한 문제 수 : " + info.unsolvedN() + "\n\n");
+        for (String type : info.typeList()) {
             int successN = 0;
             int falseN = 0;
             if (solvedMap.containsKey(type)) {
@@ -56,8 +56,8 @@ public class ConsoleBoard {
 
     public void printUnsolvedInfo() {
         System.out.println("------------- 틀린 문제 -------------");
-        UnsolvedInfo unsolvedInfo = problemStatusManager.getUnsolvedInfo();
-        HashMap<String, List<ProblemInfo>> unsolvedMap = unsolvedInfo.unsolvedInfoByType();
+        UnsolvedInfo info = problemStatusManager.getUnsolvedInfo();
+        HashMap<String, List<ProblemInfo>> unsolvedMap = info.unsolvedInfoByType();
 
         StringBuilder sb = new StringBuilder();
         for (String type : unsolvedMap.keySet()) {

@@ -33,6 +33,7 @@ public class ProblemStatusManagerImpl implements ProblemStatusManager {
     @Override
     public UnsolvedInfo getUnsolvedInfo() {
         HashMap<String, List<Problem>> unsolvedMapByType = problemBox.getUnsolvedMapByType();
+
         HashMap<String, List<ProblemInfo>> unsolvedInfo = new HashMap<>();
         for (String type : unsolvedMapByType.keySet()) {
             List<Problem> problemList = unsolvedMapByType.get(type);

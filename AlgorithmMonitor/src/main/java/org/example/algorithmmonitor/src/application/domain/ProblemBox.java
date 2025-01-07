@@ -79,7 +79,7 @@ public class ProblemBox {
         if (mapByType == null) {
             mapByType = new HashMap<>();
             //type 추출
-            List<String> typeList = problems.stream().map(Problem::getType).toList();
+            List<String> typeList = problems.stream().map(Problem::getType).toList();   //지금보니 distinct 써야되는거 아닌가..?
             //type 별로 수행
             for (String type : typeList) {
                 //해당 type에 해당하는 모든 problem을 찾아서, map에 put
@@ -91,6 +91,7 @@ public class ProblemBox {
     }
 
     public HashMap<String, List<Problem>> getSolvedMapByType() {
+        //전체 map은 데이터 멤버로 가지고있는데, 이 solved map이랑 아래의 unsolved map은 따로 안가지고 여기서 만들어서 리턴하게 해놓음 _개선 필요
         HashMap<String, List<Problem>> solvedMap = new HashMap<>();
         List<String> typeList = this.getSolved().stream().map(Problem::getType).toList();
         for (String type : typeList) {
